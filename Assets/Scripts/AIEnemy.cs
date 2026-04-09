@@ -1,37 +1,71 @@
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
 {
-    private float movementSpeed = 2f;
-    private float attackRange = 1.5f;
-    private float attackCooldown = 2f;
+    public float movementSpeed;
+    public float attackRange;
+    public float attackCooldown;
+
+    public void MoveToNextPosition()
+    {
+        // Logic to move the enemy along a predefined path
+    }
 
     public void Attack()
     {
         // Logic to perform a basic attack on the player
     }
+
+    public void ScareAway()
+    {
+        // Scare the enemy off of the board
+    }
 }
 
-public class Smoker : AIEnemy
+public class Fire : MonoBehaviour
 {
-    public void StartFire()
+    private bool isActive = false;
+    public void SetupFire()
     {
-        // Logic to emit smoke that obscures vision
+        // Give flame warm up period before it starts logic
+    }
+    public void RegisterFire()
+    {
+        isActive = true;
+        // Let fire start contributing to forest health degradation
+    }
+    public void PutOut()
+    {
+        if(isActive) {/* Deregister fire if it's already registered */}
+
+        // Delay to account for animation of putting out fire
+        
     }
 }
 
 public class Hunter : AIEnemy
 {
-    float movementSpeed = 3f;
-    float attackRange = 1f;
 
+}
+
+public class Smoker : AIEnemy
+{
+
+    List<Fire> activeFires = new List<Fire>();
+
+    public void StartFire()
+    {
+        // Delay at start to account for animation
+        activeFires.Add(new Fire());
+        activeFires[activeFires.Count - 1].SetupFire();
+    }
 }
 
 public class Wolf : AIEnemy
 {
-    float movementSpeed = 4f;
 
-    public void Howl()
+    public void FindNextCritter()
     {
         // Logic to howl, potentially attracting other enemies or intimidating the player
     }
