@@ -35,29 +35,27 @@ public class AttackMechanics : MonoBehaviour
 
     IEnumerator StartStomping()
     {
-        stompingReady = false;
-        stompingActive = true;
+        PlayerBear pb = GetComponent<PlayerBear>();
+
+        pb.moveSpeed = 0; // Stop Player
+
         stompingHitbox.SetActive(true);
         yield return new WaitForSeconds(hitboxDuration);
         stompingHitbox.SetActive(false);
-        stompingActive = false;
 
-        // Cooldown for Stomping
-        yield return new WaitForSeconds(cooldown);
-        stompingReady = true;
+        pb.moveSpeed = pb.defaultMoveSpeed; // Restore Speed
     }
 
     IEnumerator StartRoaring()
     {
-        roaringReady = false;
-        roaringActive = true;
+        PlayerBear pb = GetComponent<PlayerBear>();
+
+        pb.moveSpeed = 0; // Stop Player
+
         roaringHitbox.SetActive(true);
         yield return new WaitForSeconds(hitboxDuration);
         roaringHitbox.SetActive(false);
-        roaringActive = false;
 
-        //Cooldown for Roaring
-        yield return new WaitForSeconds(cooldown);
-        roaringReady = true;
+        pb.moveSpeed = pb.defaultMoveSpeed; // Restore Speed
     }
 }
