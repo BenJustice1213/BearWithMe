@@ -40,6 +40,9 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+
+    // Refactor this to modify the enemy?
+
     void SpawnEnemy()
     {
         // Enemy spawns at a random spawn point
@@ -49,12 +52,12 @@ public class WaveManager : MonoBehaviour
 
         enemiesAlive++;
 
-        var enemyScript = enemy.GetComponent<Enemy>();
+        var enemyScript = enemy.GetComponent<AIEnemy>();
+        Debug.Log(enemyScript.waveManager);
         enemyScript.waveManager = this;
 
         //Enemy will begin to travel to designated tower
         enemyScript.targetTower = randomSpawn.assignedTower;
-        enemyScript.MoveToNextPosition();
 
         if (enemyPrefab == null)
         {

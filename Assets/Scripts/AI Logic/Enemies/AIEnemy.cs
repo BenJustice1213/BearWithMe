@@ -1,5 +1,6 @@
-using System.Numerics;
 using System.Runtime.Serialization;
+using Mono.Cecil.Cil;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
@@ -13,13 +14,12 @@ public class AIEnemy : MonoBehaviour
 
     protected void Start()
     {
-
         // Initialize enemy behavior, such as finding the target tower
     }
 
-    public void MoveToNextPosition()
+    protected void MoveToNextPosition()
     {
-        // Logic to move the enemy along a predefined path
+        transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
     }
 
     public void ChaseAway()
@@ -36,9 +36,12 @@ public class AIEnemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position) - attackRange;
+        if(targetTower == null) { return; }
 
-        // Check distance to target tower and attack if in range
+        distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position);
+        if(distanceFromTarget > attackRange)
+                { MoveToNextPosition(); }
+        else    { targetTower.StartAttack(this.gameObject);}
     }
 
     void Update()
