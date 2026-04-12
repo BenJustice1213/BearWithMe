@@ -54,7 +54,7 @@ public class WaveManager : MonoBehaviour
 
         //Enemy will begin to travel to designated tower
         enemyScript.targetTower = randomSpawn.assignedTower;
-        enemyScript.MoveToNextPosition();
+      //  enemyScript.MoveToNextPosition();
 
         if (enemyPrefab == null)
         {

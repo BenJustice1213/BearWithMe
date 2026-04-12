@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 5f;
+  //  [SerializeField] float movementSpeed = 5f;
     [SerializeField] float attackRange;
     protected float distanceFromTarget = 0.0f;
 
@@ -36,7 +36,7 @@ public class AIEnemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position) - attackRange;
+      //  distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position) - attackRange;
 
         // Check distance to target tower and attack if in range
     }
