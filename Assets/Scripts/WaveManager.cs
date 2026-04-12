@@ -17,6 +17,12 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
+        /*
+        Loop through spawn points and tree towers. Presumably their indexes should
+        match up. If not, setting up a new prefab that pairs a spawn point with a 
+        tower may be the best course of action.
+        - AJB
+        */
         StartCoroutine(StartWave());
     }
 
@@ -43,11 +49,12 @@ public class WaveManager : MonoBehaviour
 
         enemiesAlive++;
 
-        Enemy enemyScript = enemy.GetComponent<Enemy>();
+        var enemyScript = enemy.GetComponent<Enemy>();
         enemyScript.waveManager = this;
 
         //Enemy will begin to travel to designated tower
         enemyScript.targetTower = randomSpawn.assignedTower;
+        enemyScript.MoveToNextPosition();
 
         if (enemyPrefab == null)
         {

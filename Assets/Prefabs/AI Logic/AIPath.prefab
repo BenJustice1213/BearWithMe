@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2774739376807854282
+--- !u!1 &2406978511211945752
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5542035429909137871}
-  - component: {fileID: 1206844126524587225}
+  - component: {fileID: 6542336577772827587}
+  - component: {fileID: 8575162909226008295}
   m_Layer: 0
-  m_Name: Smoker
-  m_TagString: Enemy
+  m_Name: AIPath
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5542035429909137871
+--- !u!4 &6542336577772827587
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2774739376807854282}
+  m_GameObject: {fileID: 2406978511211945752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,20 +32,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1206844126524587225
+--- !u!114 &8575162909226008295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2774739376807854282}
+  m_GameObject: {fileID: 2406978511211945752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48fa913befaec9a5cb12f4af805e0f57, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ae453f062c09c9b696bfe11a78006a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0
-  attackRange: 0
-  attackCooldown: 0
-  waveManager: {fileID: 0}
-  targetTower: {fileID: 0}
+  idNumber: 0
+  waypoints:
+  - {x: -5.3077687e+37, y: 12}
+  - {x: -5.3077687e+37, y: 5}
