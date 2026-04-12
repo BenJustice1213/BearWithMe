@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - WaveManager
+  - ForestManager
+  - Tower
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

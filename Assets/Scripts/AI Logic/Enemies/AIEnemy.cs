@@ -1,14 +1,21 @@
+using System.Numerics;
 using System.Runtime.Serialization;
 using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
 {
-    [SerializeField] float movementSpeed;
+    [SerializeField] float movementSpeed = 5f;
     [SerializeField] float attackRange;
-    [SerializeField] float attackCooldown;
+    protected float distanceFromTarget = 0.0f;
 
     public WaveManager waveManager;
     public TreeTower targetTower;
+
+    protected void Start()
+    {
+
+        // Initialize enemy behavior, such as finding the target tower
+    }
 
     public void MoveToNextPosition()
     {
@@ -25,6 +32,13 @@ public class AIEnemy : MonoBehaviour
     private void ClearEnemy()
     {
         Destroy(gameObject);
+    }
+
+    protected void FixedUpdate()
+    {
+        distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position) - attackRange;
+
+        // Check distance to target tower and attack if in range
     }
 
     void Update()

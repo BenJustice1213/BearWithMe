@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2774739376807854282
+--- !u!1 &3473685397401678073
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5542035429909137871}
-  - component: {fileID: 3619909513691503677}
+  - component: {fileID: 4943839163478234988}
+  - component: {fileID: 1546513756312254782}
   m_Layer: 0
-  m_Name: Hunter
-  m_TagString: Enemy
+  m_Name: WaveManager
+  m_TagString: WaveManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5542035429909137871
+--- !u!4 &4943839163478234988
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2774739376807854282}
+  m_GameObject: {fileID: 3473685397401678073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.14776173, y: 0.99398446, z: 0.03231032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3619909513691503677
+--- !u!114 &1546513756312254782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2774739376807854282}
+  m_GameObject: {fileID: 3473685397401678073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148e25776999ff5d0bbac408a1be9091, type: 3}
+  m_Script: {fileID: 11500000, guid: 571c19860891f90459406812a7a9c559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  attackRange: 0
-  waveManager: {fileID: 0}
-  targetTower: {fileID: 0}
+  enemyPrefab: {fileID: 2774739376807854282, guid: 6a6a193fcd457d17e8d119e1f7535063, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentWave: 1
+  enemiesPerWave: 6
+  timeBetweenSpawns: 0.5
+  timeBetweenWaves: 5
