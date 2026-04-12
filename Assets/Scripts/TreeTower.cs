@@ -1,24 +1,32 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TreeTower : MonoBehaviour
 {
-    public bool isBeingAttacked = false;
+    public List<GameObject> attackingEnemies = new List<GameObject>();
 
-    public void StartAttack()
+    /*
+    The order of StartAttack and StopAttack is
+    important. Please don't change either.
+    - AJB
+    */
+
+    public void StartAttack(GameObject attacker)
     {
-        if (!isBeingAttacked)
-        {
-            isBeingAttacked = true;
-            ForestManager.Instance.TowerStartedTakingDamage();
-        }
+        CheckForAttackers();
+        attackingEnemies.Add(attacker);
     }
 
-    public void StopAttack()
+    public void StopAttack(GameObject attacker)
     {
-        if (isBeingAttacked)
-        {
-            isBeingAttacked = false;
-            ForestManager.Instance.TowerStoppedTakingDamage();
-        }
+        attackingEnemies.Remove(attacker);
+        CheckForAttackers();
+    }
+
+    private void CheckForAttackers()
+    {
+        if(attackingEnemies.Count > 0)
+                { ForestManager.Instance.TowerStartedTakingDamage(); }
+        else    { ForestManager.Instance.TowerStoppedTakingDamage(); }
     }
 }
