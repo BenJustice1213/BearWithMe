@@ -8,6 +8,8 @@ public class AttackMechanics : MonoBehaviour
     public float hitboxDuration = 1.0f;
     public float cooldown = 2f;
 
+    public Animator animator;
+
     private bool stompingReady = true;
     private bool roaringReady = true;
     private bool stompingActive = false;
@@ -17,6 +19,7 @@ public class AttackMechanics : MonoBehaviour
     {
         roaringHitbox.SetActive(false);
         stompingHitbox.SetActive(false);
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -51,6 +54,8 @@ public class AttackMechanics : MonoBehaviour
         PlayerBear pb = GetComponent<PlayerBear>();
 
         pb.moveSpeed = 0; // Stop Player
+
+        animator.SetTrigger("Roar");
 
         roaringHitbox.SetActive(true);
         yield return new WaitForSeconds(hitboxDuration);

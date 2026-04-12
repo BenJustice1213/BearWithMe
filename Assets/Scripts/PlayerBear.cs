@@ -18,6 +18,16 @@ public class PlayerBear : MonoBehaviour
         // WASD
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        // Face left/right
+        if (movement.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (movement.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     void FixedUpdate()
