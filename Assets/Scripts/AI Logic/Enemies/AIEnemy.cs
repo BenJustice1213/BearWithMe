@@ -17,6 +17,14 @@ public class AIEnemy : MonoBehaviour
         // Initialize enemy behavior, such as finding the target tower
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Roar")
+        {
+            ChaseAway();
+        }
+    }
+
     protected void MoveToNextPosition()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
@@ -25,6 +33,7 @@ public class AIEnemy : MonoBehaviour
     public void ChaseAway()
     {
         waveManager.EnemyChased();
+        Debug.LogError("Enemy Chased");
         // Give time to let the enemy run off the board before destroying it
         ClearEnemy();
     }
@@ -36,20 +45,21 @@ public class AIEnemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        if(targetTower == null) { return; }
+        if (targetTower == null) { return; }
 
         distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position);
-        if(distanceFromTarget > attackRange)
-                { MoveToNextPosition(); }
-        else    { targetTower.StartAttack(this.gameObject);}
+        if (distanceFromTarget > attackRange)
+        { MoveToNextPosition(); }
+        else { targetTower.StartAttack(this.gameObject); }
     }
 
     void Update()
     {
         // Placeholder for testing enemy behavior
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            ChaseAway();
-        }
+        //  if (Input.GetKeyDown(KeyCode.K))
+        //    {
+        //        ChaseAway();
+        //    }
+        //}
     }
 }

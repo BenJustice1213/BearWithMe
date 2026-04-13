@@ -28,6 +28,8 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator StartWave()
     {
+        Debug.LogError("Wave Started");
+
         waveInProgress = true;
 
         // Spawn 6 enemies + 4 after each wave
@@ -49,6 +51,7 @@ public class WaveManager : MonoBehaviour
         SpawnPoint randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         GameObject enemy = Instantiate(enemyPrefab, randomSpawn.transform.position, Quaternion.identity);
+        Debug.LogError("Enemy Spawned");
 
         enemiesAlive++;
 
