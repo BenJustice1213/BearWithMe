@@ -1,35 +1,53 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public SpawnPoint[] spawnPoints; // 6 tower spawn points
 
+    public ForestManager forestManager;
+
     public int currentWave = 1;
     public int enemiesPerWave = 6;
     public float timeBetweenSpawns = 0.5f;
     public float timeBetweenWaves = 5f;
-
+    public TextMeshProUGUI waveText;
     private int enemiesAlive = 0;
     private bool waveInProgress = false;
 
     void Start()
     {
+
         /*
         Loop through spawn points and tree towers. Presumably their indexes should
         match up. If not, setting up a new prefab that pairs a spawn point with a 
         tower may be the best course of action.
         - AJB
         */
+        StartCoroutine(WaveDowntime());
+    }
+
+    IEnumerator WaveDowntime()
+    {
+        forestManager.SetDecayActive(false);
+        forestManager.ResetForestHealth();
+        waveText.gameObject.SetActive(true);
+        waveText.text = "Wave " + currentWave;
+
+        yield return new WaitForSeconds(timeBetweenWaves);
+
+        waveText.gameObject.SetActive(false);
+
         StartCoroutine(StartWave());
     }
 
     IEnumerator StartWave()
     {
         Debug.LogError("Wave Started");
-
+        forestManager.SetDecayActive(true);
         waveInProgress = true;
 
         // Spawn 6 enemies + 4 after each wave
@@ -41,7 +59,6 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
     }
-
 
     // Refactor this to modify the enemy?
 
@@ -75,18 +92,15 @@ public class WaveManager : MonoBehaviour
         
         if (enemiesAlive <= 0 && waveInProgress)
         {
-            StartCoroutine(NextWave());
+            NextWave();
         }
     }
 
-    IEnumerator NextWave()
+    void NextWave()
     {
         waveInProgress = false;
 
-        //Downtime to add UI and fun facts later
-        yield return new WaitForSeconds(timeBetweenWaves);
-
         currentWave++;
-        StartCoroutine(StartWave());
+        StartCoroutine(WaveDowntime());
     }
 }

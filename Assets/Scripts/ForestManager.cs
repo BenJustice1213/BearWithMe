@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ForestManager : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class ForestManager : MonoBehaviour
     public float extraDecayPerTower = 5f;
 
     public Slider forestHealthBar;
-
+    private bool decayActive = false;
     private int towersUnderAttack = 0;
+
+    public GameObject gameOverPanel;
+    private bool isGameOver = false;
 
     void Awake()
     {
@@ -28,8 +32,17 @@ public class ForestManager : MonoBehaviour
         forestHealthBar.value = currentForestHealth;
     }
 
+    public void ResetForestHealth()
+    {
+        currentForestHealth = maxForestHealth;
+        forestHealthBar.value = currentForestHealth;
+        towersUnderAttack = 0;
+    }
+
     void Update()
     {
+        if (!decayActive) return;
+
         // 1 tower under attack each adds 5 damage to decay
         float totalDPS = baseDecayPerSecond + (towersUnderAttack * extraDecayPerTower);
 
@@ -37,6 +50,16 @@ public class ForestManager : MonoBehaviour
         currentForestHealth = Mathf.Clamp(currentForestHealth, 0, maxForestHealth);
 
         forestHealthBar.value = currentForestHealth;
+
+        if (!isGameOver && currentForestHealth <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void SetDecayActive(bool active)
+    {
+        decayActive = active;
     }
 
     public void TowerStartedTakingDamage()
@@ -47,5 +70,25 @@ public class ForestManager : MonoBehaviour
     public void TowerStoppedTakingDamage()
     {
         towersUnderAttack = Mathf.Max(0, towersUnderAttack - 1);
+    }
+
+    void GameOver()
+    {
+        isGameOver = true;
+
+        Time.timeScale = 0f; // freeze game
+        gameOverPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu"); // change name if needed
     }
 }

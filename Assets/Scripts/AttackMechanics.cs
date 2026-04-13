@@ -30,7 +30,7 @@ public class AttackMechanics : MonoBehaviour
             StartCoroutine(StartStomping());
         }
         // Shift for Roaring
-        if (Input.GetKeyDown(KeyCode.LeftShift) && roaringReady && !stompingActive)
+        if (Input.GetKeyDown(KeyCode.RightShift) && roaringReady && !stompingActive)
         {
             StartCoroutine(StartRoaring());
         }
