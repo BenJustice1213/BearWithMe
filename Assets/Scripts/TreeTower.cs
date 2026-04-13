@@ -3,18 +3,13 @@ using System.Collections.Generic;
 
 public class TreeTower : MonoBehaviour
 {
+    private bool loggedAsAttacked = false;
     public List<GameObject> attackingEnemies = new List<GameObject>();
-
-    /*
-    The order of StartAttack and StopAttack is
-    important. Please don't change either.
-    - AJB
-    */
 
     public void StartAttack(GameObject attacker)
     {
-        CheckForAttackers();
         attackingEnemies.Add(attacker);
+        CheckForAttackers();
     }
 
     public void StopAttack(GameObject attacker)
@@ -26,7 +21,21 @@ public class TreeTower : MonoBehaviour
     private void CheckForAttackers()
     {
         if(attackingEnemies.Count > 0)
-                { ForestManager.Instance.TowerStartedTakingDamage(); }
-        else    { ForestManager.Instance.TowerStoppedTakingDamage(); }
+                { SetDamageState(true); }
+        else    { SetDamageState(false); }
+    }
+
+    private void SetDamageState(bool isTakingDamage)
+    {
+        if(isTakingDamage && !loggedAsAttacked)
+        {
+            ForestManager.Instance.TowerStartedTakingDamage();
+            loggedAsAttacked = true;
+        }
+        else if(!isTakingDamage && loggedAsAttacked)
+        {
+            ForestManager.Instance.TowerStoppedTakingDamage();
+            loggedAsAttacked = false;
+        }
     }
 }
