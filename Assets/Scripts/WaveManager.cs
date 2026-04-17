@@ -10,6 +10,8 @@ public class WaveManager : MonoBehaviour
 
     public ForestManager forestManager;
 
+    public GameObject funFactPanel;
+
     public int currentWave = 1;
     public int enemiesPerWave = 6;
     public float timeBetweenSpawns = 0.5f;
@@ -32,6 +34,7 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator WaveDowntime()
     {
+        funFactPanel.SetActive(true);
         forestManager.SetDecayActive(false);
         forestManager.ResetForestHealth();
         waveText.gameObject.SetActive(true);
@@ -46,6 +49,7 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator StartWave()
     {
+        funFactPanel.SetActive(false);
         Debug.LogError("Wave Started");
         forestManager.SetDecayActive(true);
         waveInProgress = true;

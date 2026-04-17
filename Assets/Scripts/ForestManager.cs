@@ -27,7 +27,7 @@ public class ForestManager : MonoBehaviour
     void Start()
     {
         currentForestHealth = maxForestHealth;
-
+        gameOverPanel.SetActive(false);
         forestHealthBar.maxValue = maxForestHealth;
         forestHealthBar.value = currentForestHealth;
     }

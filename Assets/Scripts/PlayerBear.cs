@@ -7,14 +7,21 @@ public class PlayerBear : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    private Animator animator;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         defaultMoveSpeed = moveSpeed; // Save Original Speed
     }
 
     void Update()
     {
+            movement = Vector2.zero;
+            animator.SetFloat("Speed", 0);
+
         // WASD
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -28,6 +35,8 @@ public class PlayerBear : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+
+        animator.SetFloat("Speed", movement.magnitude);
     }
 
     void FixedUpdate()

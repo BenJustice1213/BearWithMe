@@ -42,6 +42,8 @@ public class AttackMechanics : MonoBehaviour
 
         pb.moveSpeed = 0; // Stop Player
 
+        animator.SetTrigger("Stomp");
+
         stompingHitbox.SetActive(true);
         yield return new WaitForSeconds(hitboxDuration);
         stompingHitbox.SetActive(false);
