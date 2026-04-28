@@ -32,8 +32,9 @@ public class Waypoint : MonoBehaviour
         if (nextWaypoint)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(transform.position, gizmoSize);
             Gizmos.DrawLine(transform.position, nextWaypoint.transform.position);
+            if (isExitPoint) { Gizmos.color = Color.yellow; }
+            Gizmos.DrawSphere(transform.position, gizmoSize);
         }
         else
         {    

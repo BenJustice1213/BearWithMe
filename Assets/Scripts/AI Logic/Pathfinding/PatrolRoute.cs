@@ -32,28 +32,32 @@ public class PatrolRoute : MonoBehaviour
     void InEditor()
     {
         if (numOfWaypoints == waypoints.Count)
-            return;
-        // Assemble prefabs then review code.
+            return; 
         else if (numOfWaypoints > waypoints.Count)
-        {
-            for (int i = waypoints.Count; i < numOfWaypoints; i++)
-            {
-                GameObject newWaypoint = new GameObject("Waypoint " + (i + 1));
-                newWaypoint.transform.parent = transform;
-                Waypoint waypointComponent = newWaypoint.AddComponent<Waypoint>();
-                if (waypoints.Count > 0)
-                    waypointComponent.nextWaypoint = waypoints[waypoints.Count - 1];
-                waypoints.Add(waypointComponent);
-            }
-        }
+            addWaypoints();
         else
+            cullWaypoints();
+    }
+
+    void addWaypoints()
+    {
+        for (int i = waypoints.Count; i < numOfWaypoints; i++)
         {
-            for (int i = waypoints.Count - 1; i >= numOfWaypoints; i--)
-            {
-                DestroyImmediate(waypoints[i].gameObject);// 
-                waypoints.RemoveAt(i);
-            }
+            GameObject newWaypoint = new GameObject("Waypoint " + (i + 1));
+            newWaypoint.transform.parent = transform;
+            Waypoint waypointComponent = newWaypoint.AddComponent<Waypoint>();
+            if (i > 0)
+                waypoints[i-1].nextWaypoint = waypointComponent;
+            waypoints.Add(waypointComponent);
         }
-        Debug.Log(numOfWaypoints);
+    }
+
+    void cullWaypoints()
+    {
+        for (int i = waypoints.Count - 1; i >= numOfWaypoints; i--)
+        {
+            DestroyImmediate(waypoints[i].gameObject);// 
+            waypoints.RemoveAt(i);
+        }
     }
 }
