@@ -10,6 +10,9 @@ public class PatrolRoute : MonoBehaviour
     [SerializeField] private int numOfWaypoints;
     private List<Waypoint> waypoints = new List<Waypoint>();
 
+    private int lastValidNumOfWaypoints = 0;
+    private bool isDataValid = true;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,8 +20,31 @@ public class PatrolRoute : MonoBehaviour
         if(Application.IsPlaying(gameObject))
             Debug.Log("Hello Level!");
         else
-            Debug.Log("Hello Editor!");
+            CheckChildren();
     }
+
+    void CheckChildren()
+    {
+        Waypoint[] childWaypoints = GetComponentsInChildren<Waypoint>();
+        if (childWaypoints.Length > 0)
+        {
+            waypoints = new List<Waypoint>(childWaypoints);
+            numOfWaypoints = waypoints.Count;
+        }
+    }
+
+    // void OnValidate()
+    // {
+    //     if (numOfWaypoints != lastValidNumOfWaypoints)
+    //     {
+    //         lastValidNumOfWaypoints = numOfWaypoints;
+    //         isDataValid = false;
+    //     }
+    //     else
+    //     {
+    //         isDataValid = true;
+    //     }
+    // }
 
     // Update is called once per frame
     void Update()
