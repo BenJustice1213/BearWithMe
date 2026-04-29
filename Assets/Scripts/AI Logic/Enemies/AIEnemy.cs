@@ -5,26 +5,16 @@ public class AIEnemy : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] float attackRange;
-    protected float distanceFromTarget = 0.0f;
 
-    public WaveManager waveManager;
-    public TreeTower targetTower;
+    public enum EnemyState { Idling, Moving, Acting }
+    [HideInInspector] public EnemyState currentState = EnemyState.Idling;
+    [HideInInspector] public WaveManager waveManager;
+    [HideInInspector] public TreeTower targetTower;
+    [HideInInspector] protected float distanceFromTarget = 0.0f;
 
-    protected void Start()
+    protected virtual void MoveToNextPosition()
     {
-        // Initialize enemy behavior, such as finding the target tower
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Roar")
-        {
-            ChaseAway();
-        }
-    }
-
-    protected void MoveToNextPosition()
-    {
+        currentState = EnemyState.Moving;
         transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
     }
 
