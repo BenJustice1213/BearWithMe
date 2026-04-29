@@ -71,6 +71,7 @@ public class PatrolRoute : MonoBehaviour
         {
             GameObject newWaypoint = new GameObject("Waypoint " + (i + 1));
             newWaypoint.transform.parent = transform;
+            newWaypoint.tag = "Waypoint";
             Waypoint waypointComponent = newWaypoint.AddComponent<Waypoint>();
             if (i > 0)
                 waypoints[i-1].nextWaypoint = waypointComponent;
