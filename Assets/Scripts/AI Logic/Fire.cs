@@ -4,7 +4,8 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     [SerializeField] float setupDelay;
-    private bool isActive = false;
+    [HideInInspector] public TreeTower targetTower;
+    [HideInInspector] private bool isActive = false;
     void Start()
     {
         StartCoroutine(SetupFire());
@@ -17,12 +18,11 @@ public class Fire : MonoBehaviour
     public void RegisterFire()
     {
         isActive = true;
-        // Let fire start contributing to forest health degradation
+        targetTower.StartAttack(this.gameObject);
     }
     public void PutOut()
     {
-        if(isActive) {/* Deregister fire if it's already registered */}
-
-        
+        if(isActive) targetTower.StopAttack(this.gameObject);
+        Destroy(gameObject);
     }
 }

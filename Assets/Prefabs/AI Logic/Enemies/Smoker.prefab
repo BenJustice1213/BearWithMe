@@ -98,4 +98,6 @@ MonoBehaviour:
   spawnWeight: 5
   currentState: 0
   waveManager: {fileID: 0}
+  spawnPoint: {fileID: 0}
   targetTower: {fileID: 0}
+  firePrefab: {fileID: 6353467657799844082, guid: ecf0de188b8a263d68d8b62a9c38152d, type: 3}

@@ -69,15 +69,13 @@ public class WaveManager : MonoBehaviour
 
         // Enemy spawns at a random spawn point
         AIEnemy enemy = CalculateWeight(randomSpawn);
-        Debug.LogError("Enemy Spawned");
-
         enemiesAlive++;
 
         var enemyScript = enemy.GetComponent<AIEnemy>();
-        Debug.Log(enemyScript.waveManager);
         enemyScript.waveManager = this;
 
         //Enemy will begin to travel to designated tower
+        enemyScript.spawnPoint = randomSpawn;
         enemyScript.targetTower = randomSpawn.assignedTower;
     }
 

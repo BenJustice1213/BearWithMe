@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
@@ -9,30 +10,41 @@ public class AIEnemy : MonoBehaviour
     public enum EnemyState { Idling, Moving, Acting }
     [HideInInspector] public EnemyState currentState = EnemyState.Idling;
     [HideInInspector] public WaveManager waveManager;
+    [HideInInspector] public SpawnPoint spawnPoint;
     [HideInInspector] public TreeTower targetTower;
     [HideInInspector] protected float distanceFromTarget = 0.0f;
+    [HideInInspector] protected Vector3 currentWaypoint;
 
     protected virtual void MoveToNextPosition()
     {
         currentState = EnemyState.Moving;
-        transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, movementSpeed * Time.deltaTime);
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     { 
-        print("E");
-        if (other.gameObject.CompareTag("Roar")) ChaseAway(); }
+        if (other.gameObject.CompareTag("Roar")) ChaseAway();
+        else if (other.gameObject.CompareTag("Waypoint")) UpdateFocus(other.gameObject.GetComponent<Waypoint>());
+    }
 
-    public void ChaseAway()
+    protected void UpdateFocus(Waypoint waypoint)
+    {
+        if (waypoint.isExitPoint) currentWaypoint = targetTower.transform.position;
+        else currentWaypoint = waypoint.nextWaypoint.transform.position;
+    }
+
+    protected void ChaseAway()
     {
         waveManager.EnemyChased();
-        Debug.LogError("Enemy Chased");
-        // Give time to let the enemy run off the board before destroying it
-        ClearEnemy();
+        currentWaypoint = spawnPoint.gameObject.transform.position;
+        attackRange = 0f;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(ClearEnemy());
     }
 
-    private void ClearEnemy()
+    protected IEnumerator ClearEnemy()
     {
+        yield return new WaitForSeconds(6f);
         Destroy(gameObject);
     }
 
@@ -43,7 +55,13 @@ public class AIEnemy : MonoBehaviour
         distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position);
         if (distanceFromTarget > attackRange)
         { MoveToNextPosition(); }
-        else { targetTower.StartAttack(this.gameObject); }
+        else { PerformAction(); }
+    }
+
+    protected virtual IEnumerator PerformAction()
+    {
+        yield return new WaitForSeconds(0.5f);
+        targetTower.StartAttack(this.gameObject);
     }
 
     void Update()

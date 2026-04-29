@@ -1,15 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
 public class Smoker : AIEnemy
 {
-    /*
-    For the love of fuck, don't next the Fire class in the
-    Smoker class logic.
-     */
-    public void StartFire()
+    [SerializeField] private Fire firePrefab;
+
+    protected override IEnumerator PerformAction()
     {
-        // Delay at start to account for animation
-        // activeFires.Add(new Fire());
-        // activeFires[activeFires.Count - 1].SetupFire();
+        yield return new WaitForSeconds(0.5f);
+        Fire newFire = Instantiate(firePrefab, targetTower.transform.position, Quaternion.identity);
+        newFire.targetTower = targetTower;
+        ChaseAway();
     }
 }
