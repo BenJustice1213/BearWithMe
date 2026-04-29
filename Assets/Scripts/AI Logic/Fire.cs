@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class Fire : MonoBehaviour
@@ -21,8 +22,15 @@ public class Fire : MonoBehaviour
     }
     public void PutOut()
     {
-        if(isActive) {/* Deregister fire if it's already registered */}
+        if (isActive) {/* Deregister fire if it's already registered */}
 
-        
+
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Stomp")
+        {
+            PutOut();
+        }
     }
 }

@@ -60425,7 +60425,7 @@ GameObject:
   - component: {fileID: 926119349}
   m_Layer: 0
   m_Name: StompingHitbox
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77006,6 +77006,7 @@ MonoBehaviour:
   roaringHitbox: {fileID: 617391553}
   stompingHitbox: {fileID: 926119348}
   hitboxDuration: 1
+  animationHitboxDelay: 1
   cooldown: 2
   animator: {fileID: 2131356617}
 --- !u!95 &2131356617
