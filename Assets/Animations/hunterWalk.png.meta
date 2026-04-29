@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 80e034e402cdc424c990f6e2d38305d8
+guid: 54cb820c5ac00e74d9c657629cd88830
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2384067238312019303
-    second: hunter-pixilart_1_0
+      213: -7092887900843566374
+    second: hunterWalk_0
+  - first:
+      213: -4074049644709631387
+    second: hunterWalk_1
+  - first:
+      213: -7535598022266590751
+    second: hunterWalk_2
+  - first:
+      213: 2388227196936588298
+    second: hunterWalk_3
+  - first:
+      213: -7512881625521836362
+    second: hunterWalk_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,12 +112,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hunter-pixilart_1_0
+      name: hunterWalk_0
       rect:
         serializedVersion: 2
-        x: 56
+        x: 54
         y: 32
-        width: 52
+        width: 54
         height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99af3c36a771aeed0800000000000000
-      internalID: -2384067238312019303
+      spriteID: ada9d8ea800019d90800000000000000
+      internalID: -7092887900843566374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunterWalk_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 32
+        width: 54
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56aa6c1fe611677c0800000000000000
+      internalID: -4074049644709631387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunterWalk_2
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 32
+        width: 54
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9e9a8268d2c6790800000000000000
+      internalID: -7535598022266590751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunterWalk_3
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 32
+        width: 54
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c05547bffa42120800000000000000
+      internalID: 2388227196936588298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunterWalk_4
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 32
+        width: 54
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be263f67f1ecb790800000000000000
+      internalID: -7512881625521836362
       vertices: []
       indices: 
       edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hunter-pixilart_1_0: -2384067238312019303
+      hunterWalk_0: -7092887900843566374
+      hunterWalk_1: -4074049644709631387
+      hunterWalk_2: -7535598022266590751
+      hunterWalk_3: 2388227196936588298
+      hunterWalk_4: -7512881625521836362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

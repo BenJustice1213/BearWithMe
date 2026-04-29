@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 80e034e402cdc424c990f6e2d38305d8
+guid: b2c2e645836138648afb3f03909c0f62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2384067238312019303
-    second: hunter-pixilart_1_0
+      213: 4561163574497762800
+    second: cigarette_0
+  - first:
+      213: 1888422579601975654
+    second: cigarette_1
+  - first:
+      213: 8220640618769314339
+    second: cigarette_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hunter-pixilart_1_0
+      name: cigarette_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 32
-        width: 52
-        height: 77
+        x: 68
+        y: 72
+        width: 17
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99af3c36a771aeed0800000000000000
-      internalID: -2384067238312019303
+      spriteID: 0fdd36cda128c4f30800000000000000
+      internalID: 4561163574497762800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cigarette_1
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 72
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669a003b456053a10800000000000000
+      internalID: 1888422579601975654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cigarette_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 72
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32274e38615951270800000000000000
+      internalID: 8220640618769314339
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hunter-pixilart_1_0: -2384067238312019303
+      cigarette_0: 4561163574497762800
+      cigarette_1: 1888422579601975654
+      cigarette_2: 8220640618769314339
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

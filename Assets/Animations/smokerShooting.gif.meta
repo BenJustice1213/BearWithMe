@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 80e034e402cdc424c990f6e2d38305d8
+guid: a92beff4cd828724894b9fd5ae939c7f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2384067238312019303
-    second: hunter-pixilart_1_0
+      213: 5144485869638915946
+    second: smokerShooting_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hunter-pixilart_1_0
+      name: smokerShooting_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 32
-        width: 52
-        height: 77
+        x: 0
+        y: 0
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99af3c36a771aeed0800000000000000
-      internalID: -2384067238312019303
+      spriteID: a6718db44a2e46740800000000000000
+      internalID: 5144485869638915946
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hunter-pixilart_1_0: -2384067238312019303
+      smokerShooting_0: 5144485869638915946
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

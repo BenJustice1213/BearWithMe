@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: d914cc42291b75d45a43ba0c0753251d
+guid: d3aea5adb5c3bbc4ca536ca1195fa2b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8798375979398204229
-    second: IMG_1444_0
+      213: 8155418576335780159
+    second: smokerIdle_0
+  - first:
+      213: 9067020886189340639
+    second: smokerIdle_1
+  - first:
+      213: -637043509052805170
+    second: smokerIdle_2
+  - first:
+      213: 551845393069909730
+    second: smokerIdle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_1444_0
+      name: smokerIdle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1027
-        height: 1237
+        x: 62
+        y: 32
+        width: 42
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54b0c54665c1a1a70800000000000000
-      internalID: 8798375979398204229
+      spriteID: f39bd156cfddd2170800000000000000
+      internalID: 8155418576335780159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerIdle_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 99
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7fc54f47784dd70800000000000000
+      internalID: 9067020886189340639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerIdle_2
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 32
+        width: 42
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf6070cd44c827f0800000000000000
+      internalID: -637043509052805170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerIdle_3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 99
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e62ed0167c88a700800000000000000
+      internalID: 551845393069909730
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_1444_0: 8798375979398204229
+      smokerIdle_0: 8155418576335780159
+      smokerIdle_1: 9067020886189340639
+      smokerIdle_2: -637043509052805170
+      smokerIdle_3: 551845393069909730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

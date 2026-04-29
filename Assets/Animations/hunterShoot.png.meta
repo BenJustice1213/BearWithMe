@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 80e034e402cdc424c990f6e2d38305d8
+guid: b24ff0c36b94cd74fb50b2c27a0b3f29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2384067238312019303
-    second: hunter-pixilart_1_0
+      213: 5697817677663202544
+    second: hunterShoot_0
+  - first:
+      213: -8094882317036944313
+    second: hunterShoot_1
+  - first:
+      213: 5525998750591980424
+    second: hunterShoot_2
+  - first:
+      213: -8003852641992327833
+    second: hunterShoot_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,12 +109,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hunter-pixilart_1_0
+      name: hunterShoot_0
       rect:
         serializedVersion: 2
-        x: 56
+        x: 60
         y: 32
-        width: 52
+        width: 61
         height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99af3c36a771aeed0800000000000000
-      internalID: -2384067238312019303
+      spriteID: 0fc6e005df6b21f40800000000000000
+      internalID: 5697817677663202544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunterShoot_1
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 32
+        width: 61
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7440c62db6339af80800000000000000
+      internalID: -8094882317036944313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunterShoot_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 32
+        width: 61
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883994ee59a40bc40800000000000000
+      internalID: 5525998750591980424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hunterShoot_3
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 32
+        width: 78
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76db977ad6a9ce090800000000000000
+      internalID: -8003852641992327833
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hunter-pixilart_1_0: -2384067238312019303
+      hunterShoot_0: 5697817677663202544
+      hunterShoot_1: -8094882317036944313
+      hunterShoot_2: 5525998750591980424
+      hunterShoot_3: -8003852641992327833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 98137f2e788c48a498920fefedf3adc9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5642258160112115953
+    second: smokerWalk_0
+  - first:
+      213: 7398609668002964176
+    second: smokerWalk_1
+  - first:
+      213: 4490609199636662152
+    second: smokerWalk_2
+  - first:
+      213: 2285781394454499129
+    second: smokerWalk_3
+  - first:
+      213: 26308048623840379
+    second: smokerWalk_4
+  - first:
+      213: -8286276779207871955
+    second: smokerWalk_5
+  - first:
+      213: 1497834840811622078
+    second: smokerWalk_6
+  - first:
+      213: 2073126793773668139
+    second: smokerWalk_7
+  - first:
+      213: -5110803207040171273
+    second: smokerWalk_8
+  - first:
+      213: 6146353463420265007
+    second: smokerWalk_9
+  - first:
+      213: -3454097639572801508
+    second: smokerWalk_10
+  - first:
+      213: -134248355994331245
+    second: smokerWalk_11
+  - first:
+      213: -6273352554541835140
+    second: smokerWalk_12
+  - first:
+      213: -6737823484495659563
+    second: smokerWalk_13
+  - first:
+      213: 8749697351025244242
+    second: smokerWalk_14
+  - first:
+      213: -1152018401753057356
+    second: smokerWalk_15
+  - first:
+      213: -1992847414864889687
+    second: smokerWalk_16
+  - first:
+      213: -843579677866208665
+    second: smokerWalk_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: smokerWalk_0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0288417e35d4e40800000000000000
+      internalID: 5642258160112115953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 99
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d266152b442da660800000000000000
+      internalID: 7398609668002964176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_2
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 887c1795649d15e30800000000000000
+      internalID: 4490609199636662152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 99
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93f48a2511ab8bf10800000000000000
+      internalID: 2285781394454499129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_4
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c25f4e7077d5000800000000000000
+      internalID: 26308048623840379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 99
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d223fb00c2b310d80800000000000000
+      internalID: -8286276779207871955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_6
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebec7c21ad069c410800000000000000
+      internalID: 1497834840811622078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_7
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 99
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b275935c5d935cc10800000000000000
+      internalID: 2073126793773668139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_8
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f28177bf87c219b0800000000000000
+      internalID: -5110803207040171273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_9
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 99
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22282309eb3c4550800000000000000
+      internalID: 6146353463420265007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_10
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c187fb55f749010d0800000000000000
+      internalID: -3454097639572801508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_11
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 99
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 397174dd4dd032ef0800000000000000
+      internalID: -134248355994331245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_12
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c9ebbd61390f8a0800000000000000
+      internalID: -6273352554541835140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_13
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 99
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddf9574d317e72a0800000000000000
+      internalID: -6737823484495659563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_14
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2583904026b2d6970800000000000000
+      internalID: 8749697351025244242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_15
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 99
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7bbc40e553300f0800000000000000
+      internalID: -1152018401753057356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_16
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 32
+        width: 37
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a83c61b5dbf754e0800000000000000
+      internalID: -1992847414864889687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: smokerWalk_17
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 99
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 762db01a0c00b44f0800000000000000
+      internalID: -843579677866208665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      smokerWalk_0: 5642258160112115953
+      smokerWalk_1: 7398609668002964176
+      smokerWalk_10: -3454097639572801508
+      smokerWalk_11: -134248355994331245
+      smokerWalk_12: -6273352554541835140
+      smokerWalk_13: -6737823484495659563
+      smokerWalk_14: 8749697351025244242
+      smokerWalk_15: -1152018401753057356
+      smokerWalk_16: -1992847414864889687
+      smokerWalk_17: -843579677866208665
+      smokerWalk_2: 4490609199636662152
+      smokerWalk_3: 2285781394454499129
+      smokerWalk_4: 26308048623840379
+      smokerWalk_5: -8286276779207871955
+      smokerWalk_6: 1497834840811622078
+      smokerWalk_7: 2073126793773668139
+      smokerWalk_8: -5110803207040171273
+      smokerWalk_9: 6146353463420265007
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
