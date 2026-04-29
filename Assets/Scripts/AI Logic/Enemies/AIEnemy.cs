@@ -7,18 +7,20 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] float attackRange =      1f;
     [SerializeField] public int spawnWeight = 5;
 
-    public enum EnemyState { Idling, Moving, Acting }
-    [HideInInspector] public EnemyState currentState = EnemyState.Idling;
     [HideInInspector] public WaveManager waveManager;
     [HideInInspector] public SpawnPoint spawnPoint;
     [HideInInspector] public TreeTower targetTower;
+    [HideInInspector] protected Animator animator;
     [HideInInspector] protected float distanceFromTarget = 0.0f;
     [HideInInspector] protected Vector3 currentWaypoint;
     [HideInInspector] protected bool alreadyActing = false;
 
+    protected void Start()
+    { animator = GetComponent<Animator>(); }
+
     protected virtual void MoveToNextPosition()
     {
-        currentState = EnemyState.Moving;
+        animator.SetTrigger("Moving");
         transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, movementSpeed * Time.deltaTime);
     }
 
@@ -36,7 +38,7 @@ public class AIEnemy : MonoBehaviour
 
     protected void ChaseAway()
     {
-        currentState = EnemyState.Moving;
+        animator.SetTrigger("Moving");
         waveManager.EnemyChased();
         currentWaypoint = spawnPoint.gameObject.transform.position;
         attackRange = 0f;
@@ -67,7 +69,7 @@ public class AIEnemy : MonoBehaviour
     protected virtual IEnumerator PerformAction()
     {
         alreadyActing = true;
-        currentState = EnemyState.Acting;
+        animator.SetTrigger("Acting");
         yield return new WaitForSeconds(0.5f);
         targetTower.StartAttack(this.gameObject);
     }
