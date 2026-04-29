@@ -5,18 +5,15 @@ public class AttackMechanics : MonoBehaviour
 {
     public GameObject roaringHitbox;
     public GameObject stompingHitbox;
-    public AudioSource source;
-    public AudioClip roarSoundEffect;
-    public AudioClip stompSoundEffect;
-
     public float hitboxDuration = 1.0f;
-    public float animationHitboxDelay = 1.0f;
     public float cooldown = 2f;
 
     public Animator animator;
 
-    private bool canStomp = true;
-    private bool canRoar = true;
+    private bool stompingReady = true;
+    private bool roaringReady = true;
+    private bool stompingActive = false;
+    private bool roaringActive = false;
 
     void Start()
     {
@@ -27,64 +24,45 @@ public class AttackMechanics : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canStomp)
+        // Space for Stomping
+        if (Input.GetKeyDown(KeyCode.Space) && stompingReady && !roaringActive)
         {
-            StartCoroutine(StompRoutine());
+            StartCoroutine(StartStomping());
         }
-
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && canRoar)
+        // Shift for Roaring
+        if (Input.GetKeyDown(KeyCode.RightShift) && roaringReady && !stompingActive)
         {
-            StartCoroutine(RoarRoutine());
+            StartCoroutine(StartRoaring());
         }
     }
 
-    IEnumerator StompRoutine()
+    IEnumerator StartStomping()
     {
-        canStomp = false;
-
         PlayerBear pb = GetComponent<PlayerBear>();
-        pb.moveSpeed = 0;
+
+        pb.moveSpeed = 0; // Stop Player
 
         animator.SetTrigger("Stomp");
-        source.PlayOneShot(stompSoundEffect);
-
-        yield return new WaitForSeconds(animationHitboxDelay);
 
         stompingHitbox.SetActive(true);
-
         yield return new WaitForSeconds(hitboxDuration);
-
         stompingHitbox.SetActive(false);
 
-        pb.moveSpeed = pb.defaultMoveSpeed;
-
-        yield return new WaitForSeconds(cooldown);
-
-        canStomp = true;
+        pb.moveSpeed = pb.defaultMoveSpeed; // Restore Speed
     }
 
-    IEnumerator RoarRoutine()
+    IEnumerator StartRoaring()
     {
-        canRoar = false;
-
         PlayerBear pb = GetComponent<PlayerBear>();
-        pb.moveSpeed = 0;
+
+        pb.moveSpeed = 0; // Stop Player
 
         animator.SetTrigger("Roar");
-        source.PlayOneShot(roarSoundEffect);
-
-        yield return new WaitForSeconds(animationHitboxDelay);
 
         roaringHitbox.SetActive(true);
-
         yield return new WaitForSeconds(hitboxDuration);
-
         roaringHitbox.SetActive(false);
 
-        pb.moveSpeed = pb.defaultMoveSpeed;
-
-        yield return new WaitForSeconds(cooldown);
-
-        canRoar = true;
+        pb.moveSpeed = pb.defaultMoveSpeed; // Restore Speed
     }
 }

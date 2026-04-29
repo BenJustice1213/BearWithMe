@@ -5,43 +5,41 @@ public class AIEnemy : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] float attackRange;
-    [SerializeField] public int spawnWeight = 5;
+    protected float distanceFromTarget = 0.0f;
 
-    public enum EnemyState { Idling, Moving, Acting }
-    [HideInInspector] public EnemyState currentState = EnemyState.Idling;
-    [HideInInspector] public WaveManager waveManager;
-    [HideInInspector] public TreeTower targetTower;
-    [HideInInspector] protected float distanceFromTarget = 0.0f;
+    public WaveManager waveManager;
+    public TreeTower targetTower;
 
-
-
-
-    protected virtual void MoveToNextPosition()
+    protected void Start()
     {
-        currentState = EnemyState.Moving;
-        transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
-    }
-
-    protected virtual void EnemyAction()
-    {
-        currentState = EnemyState.Acting;
-        Debug.LogWarning("EnemyAction method not implemented for " + gameObject.name);
+        // Initialize enemy behavior, such as finding the target tower
     }
 
     public void OnTriggerEnter2D(Collider2D other)
-    { if (other.tag == "Roar") ChaseAway(); }
-
-    protected void ChaseAway()
     {
-        currentState = EnemyState.Moving;
+        if (other.tag == "Roar")
+        {
+            ChaseAway();
+        }
+    }
+
+    protected void MoveToNextPosition()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
+    }
+
+    public void ChaseAway()
+    {
         waveManager.EnemyChased();
         Debug.LogError("Enemy Chased");
         // Give time to let the enemy run off the board before destroying it
         ClearEnemy();
     }
 
-    protected void ClearEnemy()
-    { Destroy(gameObject);}
+    private void ClearEnemy()
+    {
+        Destroy(gameObject);
+    }
 
     protected void FixedUpdate()
     {
