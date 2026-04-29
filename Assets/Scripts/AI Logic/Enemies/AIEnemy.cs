@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
 {
-    [SerializeField] float movementSpeed =    1f;
-    [SerializeField] float attackRange =      1f;
+    [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float attackRange = 1f;
     [SerializeField] public int spawnWeight = 5;
 
     [HideInInspector] public WaveManager waveManager;
@@ -16,7 +16,9 @@ public class AIEnemy : MonoBehaviour
     [HideInInspector] protected bool alreadyActing = false;
 
     protected void Start()
-    { animator = GetComponent<Animator>(); }
+    {
+        animator = GetComponent<Animator>();
+    }
 
     protected virtual void MoveToNextPosition()
     {
@@ -25,7 +27,7 @@ public class AIEnemy : MonoBehaviour
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
-    { 
+    {
         if (other.gameObject.CompareTag("Roar")) ChaseAway();
         else if (other.gameObject.CompareTag("Waypoint")) UpdateFocus(other.gameObject.GetComponent<Waypoint>());
     }
@@ -40,6 +42,11 @@ public class AIEnemy : MonoBehaviour
     {
         animator.SetTrigger("Moving");
         waveManager.EnemyChased();
+
+        // Ensure the tower knows this attacker stopped attacking
+        if (targetTower != null)
+            targetTower.StopAttack(this.gameObject);
+
         currentWaypoint = spawnPoint.gameObject.transform.position;
         attackRange = 0f;
         gameObject.GetComponent<Collider2D>().enabled = false;
@@ -49,6 +56,11 @@ public class AIEnemy : MonoBehaviour
     protected IEnumerator ClearEnemy()
     {
         yield return new WaitForSeconds(6f);
+
+        // Ensure tower is notified when this enemy is destroyed/removed
+        if (targetTower != null)
+            targetTower.StopAttack(this.gameObject);
+
         Destroy(gameObject);
     }
 
@@ -81,6 +93,12 @@ public class AIEnemy : MonoBehaviour
         //    {
         //        ChaseAway();
         //    }
-        //}
+    }
+
+    void OnDestroy()
+    {
+        // Safety-net: notify tower on destroy
+        if (targetTower != null)
+            targetTower.StopAttack(this.gameObject);
     }
 }

@@ -79,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7936462623776248783, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8264947434988063860}
+    - targetCorrespondingSourceObject: {fileID: 7936462623776248783, guid: c7bddf608619122a28ce069e268fc487, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7579754376507233957}
   m_SourcePrefab: {fileID: 100100000, guid: c7bddf608619122a28ce069e268fc487, type: 3}
 --- !u!1 &4867105054881733633 stripped
 GameObject:
@@ -100,6 +103,28 @@ MonoBehaviour:
   movementSpeed: 1
   attackRange: 1
   spawnWeight: 5
-  currentState: 0
   waveManager: {fileID: 0}
+  spawnPoint: {fileID: 0}
   targetTower: {fileID: 0}
+--- !u!95 &7579754376507233957
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867105054881733633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f103485212a6eb8119bfb819f12db4b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

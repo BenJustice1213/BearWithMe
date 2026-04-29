@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-100)]
 public class ForestManager : MonoBehaviour
 {
     public static ForestManager Instance;
@@ -23,7 +24,16 @@ public class ForestManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning($"Duplicate ForestManager detected on '{gameObject.name}'. Destroying duplicate.");
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+        Debug.Log("ForestManager Awake: Instance assigned.");
     }
 
     void Start()
@@ -62,16 +72,19 @@ public class ForestManager : MonoBehaviour
     public void SetDecayActive(bool active)
     {
         decayActive = active;
+        Debug.Log($"Forest decayActive set to {decayActive}");
     }
 
     public void TowerStartedTakingDamage()
     {
         towersUnderAttack++;
+        Debug.Log($"TowerStartedTakingDamage called. towersUnderAttack = {towersUnderAttack}");
     }
 
     public void TowerStoppedTakingDamage()
     {
         towersUnderAttack = Mathf.Max(0, towersUnderAttack - 1);
+        Debug.Log($"TowerStoppedTakingDamage called. towersUnderAttack = {towersUnderAttack}");
     }
 
     void GameOver()
