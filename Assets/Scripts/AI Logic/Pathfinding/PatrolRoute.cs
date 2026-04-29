@@ -18,7 +18,7 @@ public class PatrolRoute : MonoBehaviour
     void Start()
     {
         if(Application.IsPlaying(gameObject))
-            Debug.Log("Hello Level!");
+            return;
         else
             CheckChildren();
     }
@@ -50,7 +50,7 @@ public class PatrolRoute : MonoBehaviour
     void Update()
     {
         if(Application.IsPlaying(gameObject))
-            Debug.Log("Hello Level!");
+            return;
         else
             InEditor();
     }

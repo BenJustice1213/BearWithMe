@@ -5,13 +5,14 @@ using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
     public SpawnPoint[] spawnPoints; // 6 tower spawn points
 
     public ForestManager forestManager;
     public AudioSource source;
     public AudioClip waveStartSoundEffect;
     public GameObject funFactPanel;
+
+    [SerializeField] public List<AIEnemy> enemyTypes = new List<AIEnemy>();
 
     public int currentWave = 1;
     public int enemiesPerWave = 6;
@@ -21,17 +22,12 @@ public class WaveManager : MonoBehaviour
     private int enemiesAlive = 0;
     private bool waveInProgress = false;
 
-    void Start()
-    {
+    private int totalWeight = 0;
+    void Awake()
+    { foreach (AIEnemy enemy in enemyTypes) totalWeight += enemy.spawnWeight;}
 
-        /*
-        Loop through spawn points and tree towers. Presumably their indexes should
-        match up. If not, setting up a new prefab that pairs a spawn point with a 
-        tower may be the best course of action.
-        - AJB
-        */
-        StartCoroutine(WaveDowntime());
-    }
+    void Start()
+    { StartCoroutine(WaveDowntime()); }
 
     IEnumerator WaveDowntime()
     {
@@ -69,10 +65,10 @@ public class WaveManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // Enemy spawns at a random spawn point
         SpawnPoint randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        GameObject enemy = Instantiate(enemyPrefab, randomSpawn.transform.position, Quaternion.identity);
+        // Enemy spawns at a random spawn point
+        AIEnemy enemy = CalculateWeight(randomSpawn);
         Debug.LogError("Enemy Spawned");
 
         enemiesAlive++;
@@ -83,12 +79,24 @@ public class WaveManager : MonoBehaviour
 
         //Enemy will begin to travel to designated tower
         enemyScript.targetTower = randomSpawn.assignedTower;
+    }
 
-        if (enemyPrefab == null)
+    private AIEnemy CalculateWeight(SpawnPoint randomSpawn)
+    {
+        int weightPassed = 0;
+        int randomWeight = Random.Range(0, totalWeight);
+        AIEnemy selectedEnemy = null;
+        foreach (AIEnemy enemy in enemyTypes)
         {
-            Debug.LogError("Enemy prefab missing!");
-            return;
+            weightPassed += enemy.spawnWeight;
+            if (randomWeight <= weightPassed)
+            {
+                selectedEnemy = enemy;
+                break;
+            }
         }
+
+        return Instantiate(selectedEnemy, randomSpawn.transform.position, Quaternion.identity);
     }
 
     public void EnemyChased()

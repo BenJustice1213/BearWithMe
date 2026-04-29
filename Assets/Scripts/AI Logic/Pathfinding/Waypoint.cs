@@ -14,6 +14,8 @@ public class Waypoint : MonoBehaviour
             Debug.LogError(gameObject.name + " does not have its nextWaypoint field assigned.");
             return;
         }
+        if (Application.IsPlaying(gameObject))
+            return;
         CallibrateWaypoint();
         OnDrawGizmos();
     }

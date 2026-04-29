@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3290043319322857422
+--- !u!1001 &2903900831952767950
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,27 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3904542503923046184, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       propertyPath: m_Size.x
-      value: 0.52
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3904542503923046184, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       propertyPath: m_Size.y
-      value: 0.77
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 3904542503923046184, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2384067238312019303, guid: 80e034e402cdc424c990f6e2d38305d8, type: 3}
-    - target: {fileID: 3904542503923046184, guid: c7bddf608619122a28ce069e268fc487, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8155418576335780159, guid: d3aea5adb5c3bbc4ca536ca1195fa2b3, type: 3}
     - target: {fileID: 3904542503923046184, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7936462623776248783, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       propertyPath: m_Name
-      value: Hunter
+      value: Smoker
       objectReference: {fileID: 0}
     - target: {fileID: 8959809976036984645, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78,23 +74,23 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7936462623776248783, guid: c7bddf608619122a28ce069e268fc487, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8264947434988063860}
+      addedObject: {fileID: 4766321162990204076}
   m_SourcePrefab: {fileID: 100100000, guid: c7bddf608619122a28ce069e268fc487, type: 3}
---- !u!1 &4867105054881733633 stripped
+--- !u!1 &5075346630666393601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7936462623776248783, guid: c7bddf608619122a28ce069e268fc487, type: 3}
-  m_PrefabInstance: {fileID: 3290043319322857422}
+  m_PrefabInstance: {fileID: 2903900831952767950}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8264947434988063860
+--- !u!114 &4766321162990204076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4867105054881733633}
+  m_GameObject: {fileID: 5075346630666393601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148e25776999ff5d0bbac408a1be9091, type: 3}
+  m_Script: {fileID: 11500000, guid: 48fa913befaec9a5cb12f4af805e0f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1

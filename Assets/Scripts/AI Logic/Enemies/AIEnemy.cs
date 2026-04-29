@@ -1,10 +1,10 @@
-using System.Runtime.Serialization;
 using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 5f;
-    [SerializeField] float attackRange;
+    [SerializeField] float movementSpeed =    1f;
+    [SerializeField] float attackRange =      1f;
+    [SerializeField] public int spawnWeight = 5;
 
     public enum EnemyState { Idling, Moving, Acting }
     [HideInInspector] public EnemyState currentState = EnemyState.Idling;
@@ -17,6 +17,11 @@ public class AIEnemy : MonoBehaviour
         currentState = EnemyState.Moving;
         transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    { 
+        print("E");
+        if (other.gameObject.CompareTag("Roar")) ChaseAway(); }
 
     public void ChaseAway()
     {
