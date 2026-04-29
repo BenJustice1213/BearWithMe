@@ -8,6 +8,8 @@ public class ForestManager : MonoBehaviour
 
     public float maxForestHealth = 1000f;
     private float currentForestHealth;
+    public AudioSource source;
+    public AudioClip gameOverSoundEffect;
 
     public float baseDecayPerSecond = 5f;
     public float extraDecayPerTower = 5f;
@@ -75,7 +77,7 @@ public class ForestManager : MonoBehaviour
     void GameOver()
     {
         isGameOver = true;
-
+        source.PlayOneShot(gameOverSoundEffect);
         Time.timeScale = 0f; // freeze game
         gameOverPanel.SetActive(true);
     }

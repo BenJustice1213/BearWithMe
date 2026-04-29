@@ -9,7 +9,8 @@ public class WaveManager : MonoBehaviour
     public SpawnPoint[] spawnPoints; // 6 tower spawn points
 
     public ForestManager forestManager;
-
+    public AudioSource source;
+    public AudioClip waveStartSoundEffect;
     public GameObject funFactPanel;
 
     public int currentWave = 1;
@@ -39,7 +40,7 @@ public class WaveManager : MonoBehaviour
         forestManager.ResetForestHealth();
         waveText.gameObject.SetActive(true);
         waveText.text = "Wave " + currentWave;
-
+        source.PlayOneShot(waveStartSoundEffect);
         yield return new WaitForSeconds(timeBetweenWaves);
 
         waveText.gameObject.SetActive(false);
