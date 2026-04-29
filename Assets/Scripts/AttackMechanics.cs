@@ -6,6 +6,7 @@ public class AttackMechanics : MonoBehaviour
     public GameObject roaringHitbox;
     public GameObject stompingHitbox;
     public float hitboxDuration = 1.0f;
+    public float animationHitboxDelay = 1.0f;
     public float cooldown = 2f;
 
     public Animator animator;
@@ -43,7 +44,7 @@ public class AttackMechanics : MonoBehaviour
         pb.moveSpeed = 0; // Stop Player
 
         animator.SetTrigger("Stomp");
-
+        yield return new WaitForSeconds(animationHitboxDelay); ; ; ;
         stompingHitbox.SetActive(true);
         yield return new WaitForSeconds(hitboxDuration);
         stompingHitbox.SetActive(false);
@@ -58,7 +59,7 @@ public class AttackMechanics : MonoBehaviour
         pb.moveSpeed = 0; // Stop Player
 
         animator.SetTrigger("Roar");
-
+        yield return new WaitForSeconds(animationHitboxDelay);
         roaringHitbox.SetActive(true);
         yield return new WaitForSeconds(hitboxDuration);
         roaringHitbox.SetActive(false);
