@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5542035429909137871}
-  - component: {fileID: 1206844126524587225}
+  - component: {fileID: 5667120767504810228}
   m_Layer: 0
-  m_Name: Smoker
-  m_TagString: Enemy
+  m_Name: Wolf
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1206844126524587225
+--- !u!114 &5667120767504810228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2774739376807854282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48fa913befaec9a5cb12f4af805e0f57, type: 3}
+  m_Script: {fileID: 11500000, guid: a9819f9fa1d13e0dd9f35153e5352136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
   attackRange: 0
   attackCooldown: 0
-  waveManager: {fileID: 0}
-  targetTower: {fileID: 0}
