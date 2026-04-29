@@ -20,6 +20,11 @@ public class Fire : MonoBehaviour
         isActive = true;
         targetTower.StartAttack(this.gameObject);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Stomp"))
+            PutOut();
+    }
     public void PutOut()
     {
         if(isActive) targetTower.StopAttack(this.gameObject);

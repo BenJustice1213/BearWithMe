@@ -14,6 +14,7 @@ public class AIEnemy : MonoBehaviour
     [HideInInspector] public TreeTower targetTower;
     [HideInInspector] protected float distanceFromTarget = 0.0f;
     [HideInInspector] protected Vector3 currentWaypoint;
+    [HideInInspector] protected bool alreadyActing = false;
 
     protected virtual void MoveToNextPosition()
     {
@@ -35,6 +36,7 @@ public class AIEnemy : MonoBehaviour
 
     protected void ChaseAway()
     {
+        currentState = EnemyState.Moving;
         waveManager.EnemyChased();
         currentWaypoint = spawnPoint.gameObject.transform.position;
         attackRange = 0f;
@@ -55,11 +57,17 @@ public class AIEnemy : MonoBehaviour
         distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position);
         if (distanceFromTarget > attackRange)
         { MoveToNextPosition(); }
-        else { PerformAction(); }
+        else
+        {
+            if (alreadyActing) { return; }
+            StartCoroutine(PerformAction());
+        }
     }
 
     protected virtual IEnumerator PerformAction()
     {
+        alreadyActing = true;
+        currentState = EnemyState.Acting;
         yield return new WaitForSeconds(0.5f);
         targetTower.StartAttack(this.gameObject);
     }

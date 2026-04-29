@@ -7,8 +7,10 @@ public class Smoker : AIEnemy
 
     protected override IEnumerator PerformAction()
     {
+        alreadyActing = true;
+        currentState = EnemyState.Acting;
         yield return new WaitForSeconds(0.5f);
-        Fire newFire = Instantiate(firePrefab, targetTower.transform.position, Quaternion.identity);
+        Fire newFire = Instantiate(firePrefab, transform.position, Quaternion.identity);
         newFire.targetTower = targetTower;
         ChaseAway();
     }
