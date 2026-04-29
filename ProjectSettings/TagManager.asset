@@ -10,6 +10,9 @@ TagManager:
   - Tower
   - SpawnPoint
   - Roar
+  - Waypoint
+  - Fire
+  - Stomp
   layers:
   - Default
   - TransparentFX

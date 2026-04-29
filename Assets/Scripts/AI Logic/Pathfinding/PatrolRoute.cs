@@ -18,7 +18,7 @@ public class PatrolRoute : MonoBehaviour
     void Start()
     {
         if(Application.IsPlaying(gameObject))
-            Debug.Log("Hello Level!");
+            return;
         else
             CheckChildren();
     }
@@ -50,7 +50,7 @@ public class PatrolRoute : MonoBehaviour
     void Update()
     {
         if(Application.IsPlaying(gameObject))
-            Debug.Log("Hello Level!");
+            return;
         else
             InEditor();
     }
@@ -71,6 +71,10 @@ public class PatrolRoute : MonoBehaviour
         {
             GameObject newWaypoint = new GameObject("Waypoint " + (i + 1));
             newWaypoint.transform.parent = transform;
+            newWaypoint.AddComponent<CircleCollider2D>();
+            newWaypoint.GetComponent<CircleCollider2D>().isTrigger = true;
+            newWaypoint.GetComponent<CircleCollider2D>().radius = 0.25f;
+            newWaypoint.tag = "Waypoint";
             Waypoint waypointComponent = newWaypoint.AddComponent<Waypoint>();
             if (i > 0)
                 waypoints[i-1].nextWaypoint = waypointComponent;

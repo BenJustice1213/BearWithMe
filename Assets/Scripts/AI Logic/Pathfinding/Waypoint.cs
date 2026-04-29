@@ -3,7 +3,7 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     [SerializeField] public Waypoint nextWaypoint;
-    [SerializeField] private bool isExitPoint = false;
+    [SerializeField] public bool isExitPoint = false;
     private float gizmoSize = 0.25f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,6 +14,8 @@ public class Waypoint : MonoBehaviour
             Debug.LogError(gameObject.name + " does not have its nextWaypoint field assigned.");
             return;
         }
+        if (Application.IsPlaying(gameObject))
+            return;
         CallibrateWaypoint();
         OnDrawGizmos();
     }

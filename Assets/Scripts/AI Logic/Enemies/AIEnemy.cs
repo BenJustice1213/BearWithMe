@@ -1,43 +1,54 @@
-using System.Runtime.Serialization;
+using System.Collections;
 using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 5f;
-    [SerializeField] float attackRange;
-    protected float distanceFromTarget = 0.0f;
+    [SerializeField] float movementSpeed =    1f;
+    [SerializeField] float attackRange =      1f;
+    [SerializeField] public int spawnWeight = 5;
 
-    public WaveManager waveManager;
-    public TreeTower targetTower;
+    [HideInInspector] public WaveManager waveManager;
+    [HideInInspector] public SpawnPoint spawnPoint;
+    [HideInInspector] public TreeTower targetTower;
+    [HideInInspector] protected Animator animator;
+    [HideInInspector] protected float distanceFromTarget = 0.0f;
+    [HideInInspector] protected Vector3 currentWaypoint;
+    [HideInInspector] protected bool alreadyActing = false;
 
     protected void Start()
+    { animator = GetComponent<Animator>(); }
+
+    protected virtual void MoveToNextPosition()
     {
-        // Initialize enemy behavior, such as finding the target tower
+        animator.SetTrigger("Moving");
+        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, movementSpeed * Time.deltaTime);
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Roar")
-        {
-            ChaseAway();
-        }
+    protected void OnTriggerEnter2D(Collider2D other)
+    { 
+        if (other.gameObject.CompareTag("Roar")) ChaseAway();
+        else if (other.gameObject.CompareTag("Waypoint")) UpdateFocus(other.gameObject.GetComponent<Waypoint>());
     }
 
-    protected void MoveToNextPosition()
+    protected void UpdateFocus(Waypoint waypoint)
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetTower.transform.position, movementSpeed * Time.deltaTime);
+        if (waypoint.isExitPoint) currentWaypoint = targetTower.transform.position;
+        else currentWaypoint = waypoint.nextWaypoint.transform.position;
     }
 
-    public void ChaseAway()
+    protected void ChaseAway()
     {
+        animator.SetTrigger("Moving");
         waveManager.EnemyChased();
-        Debug.LogError("Enemy Chased");
-        // Give time to let the enemy run off the board before destroying it
-        ClearEnemy();
+        currentWaypoint = spawnPoint.gameObject.transform.position;
+        attackRange = 0f;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(ClearEnemy());
     }
 
-    private void ClearEnemy()
+    protected IEnumerator ClearEnemy()
     {
+        yield return new WaitForSeconds(6f);
         Destroy(gameObject);
     }
 
@@ -48,7 +59,19 @@ public class AIEnemy : MonoBehaviour
         distanceFromTarget = Vector3.Distance(transform.position, targetTower.transform.position);
         if (distanceFromTarget > attackRange)
         { MoveToNextPosition(); }
-        else { targetTower.StartAttack(this.gameObject); }
+        else
+        {
+            if (alreadyActing) { return; }
+            StartCoroutine(PerformAction());
+        }
+    }
+
+    protected virtual IEnumerator PerformAction()
+    {
+        alreadyActing = true;
+        animator.SetTrigger("Acting");
+        yield return new WaitForSeconds(0.5f);
+        targetTower.StartAttack(this.gameObject);
     }
 
     void Update()
