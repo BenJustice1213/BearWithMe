@@ -8,6 +8,8 @@ public class WaveManager : MonoBehaviour
     public GameObject enemyPrefab;
     public SpawnPoint[] spawnPoints; // 6 tower spawn points
 
+    [SerializeField] public List<AIEnemy> enemyTypes = new List<AIEnemy>();
+
     public ForestManager forestManager;
 
     public GameObject funFactPanel;
@@ -19,6 +21,13 @@ public class WaveManager : MonoBehaviour
     public TextMeshProUGUI waveText;
     private int enemiesAlive = 0;
     private bool waveInProgress = false;
+
+
+    private int totalWeight = 0;
+    void Awake()
+    {
+        foreach (AIEnemy enemy in enemyTypes) totalWeight += enemy.spawnWeight;
+    }
 
     void Start()
     {
@@ -68,10 +77,10 @@ public class WaveManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // Enemy spawns at a random spawn point
         SpawnPoint randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        GameObject enemy = Instantiate(enemyPrefab, randomSpawn.transform.position, Quaternion.identity);
+        // Enemy spawns at a random spawn point
+        AIEnemy enemy = CalculateWeight(randomSpawn);
         Debug.LogError("Enemy Spawned");
 
         enemiesAlive++;
@@ -88,6 +97,24 @@ public class WaveManager : MonoBehaviour
             Debug.LogError("Enemy prefab missing!");
             return;
         }
+    }
+
+    private AIEnemy CalculateWeight(SpawnPoint randomSpawn)
+    {
+        int weightPassed = 0;
+        int randomWeight = Random.Range(0, totalWeight);
+        AIEnemy selectedEnemy = null;
+        foreach (AIEnemy enemy in enemyTypes)
+        {
+            weightPassed += enemy.spawnWeight;
+            if (randomWeight <= weightPassed)
+            {
+                selectedEnemy = enemy;
+                break;
+            }
+        }
+
+        return Instantiate(selectedEnemy, randomSpawn.transform.position, Quaternion.identity);
     }
 
     public void EnemyChased()
